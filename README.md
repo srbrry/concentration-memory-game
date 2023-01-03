@@ -10,9 +10,8 @@ Gameplay continues until players match all of the cards.
 
 ## Game Planning
 
-![Wireframe](images/GA Project1 wireframe.jpg)
+![Wireframe](./images/GA-Project1-wireframe.jpg)
 
-### _User Stories_
 
 MVP
 
