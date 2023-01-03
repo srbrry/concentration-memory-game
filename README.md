@@ -10,7 +10,7 @@ Gameplay continues until players match all of the cards.
 
 ## Game Planning
 
-[Wireframe](https://drive.google.com/file/d/11XgbUfGGmzv1TTd9JNY6MJeAqC9h5iAa/view?usp=sharing)
+![Wireframe](https://drive.google.com/file/d/11XgbUfGGmzv1TTd9JNY6MJeAqC9h5iAa/view?usp=sharing)
 
 ### _User Stories_
 
