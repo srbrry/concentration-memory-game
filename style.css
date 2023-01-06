@@ -22,13 +22,18 @@ a {
     color: white;
 }
 
+img {
+    width: 175px;
+}
+
 .buttons {
     text-align: center;
     display: grid;
-    grid-template-rows: 33% 33% 33%;
-    width: 20px;
-    height: 100px;
-    margin-top: 210px;
+    grid-template-columns: 50% 50%;
+    width: 100px;
+    height: 30px;
+    margin: 75px auto 30px auto;
+
 }
 
 .footer, nav {
@@ -36,8 +41,7 @@ a {
 }
 
 #game-container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 400px;
-    width: 400px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 50px;
 }

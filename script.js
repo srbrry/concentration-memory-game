@@ -79,6 +79,11 @@ const cards = document.querySelector('#game-container')
 const startButton = document.querySelector('#start-button')
 const resetButton = document.querySelector('#reset-button')
 
+const attempts = document.querySelector('.attempts')
+const cardsFound = document.querySelector('.cards-found')
+let attemptNumber = 0
+let cardsFoundNumber = 0
+
 /*----- event handlers -----*/ 
 
 
@@ -100,13 +105,17 @@ function createGameBoard() {
 
 function flipCard() {
     const cardId = this.getAttribute('data-id')
-    cardsPicked.push(images[cardId].name)
-    cardsPickedId.push(cardId)
-    console.log(cardsPickedId)
-    this.setAttribute('src', images[cardId].img)
-    if (cardsPicked.length === 2) {
-        setTimeout(matchOrNot, 450)
+    if (cardsPicked.length < 2) {
+        cardsPicked.push(images[cardId].name)
+        cardsPickedId.push(cardId)
+        console.log(cardsPickedId)
+        this.setAttribute('src', images[cardId].img)
     }
+    if (cardsPicked.length === 2) {
+        setTimeout(matchOrNot, 1000)
+    }
+
+    logAttempts()
 }
 
 
@@ -127,10 +136,15 @@ function matchOrNot() {
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
 
-      if (cardsPicked[0] === cardsPicked[1]) {
+    console.log(cards)
+    console.log(firstId)
+    console.log(secondId)
+    console.log(cardsPicked)
+      if (cardsPicked[0] === cardsPicked[1] && firstId !== secondId) {
         console.log('Its a match!')
         // putting the matched cards into an
         // empty array
+        matchesFoundNumber()
         console.log(firstId)
         console.log(secondId)
         console.log(cards)
@@ -146,7 +160,6 @@ function matchOrNot() {
     }
     cardsPicked = []
     cardsPickedId = []
-
 }
 
 shuffle(images)
@@ -161,16 +174,34 @@ function startGame() {
 
 startButton.addEventListener("click", startGame)
 
-// // function that resets the cards
+// reset game 
 
 function resetTheGame() {
     // return all cards to front-facing position
     cardsPicked =  []
     cardsPickedId = []
+    cards.setAttribute('src', 'images/blank-card.png')
+    attemptNumber = 0
+    cardsFoundNumber = 0
 }
 
-let clickReset = () => resetButton.onclick = resetTheGame
+resetButton.addEventListener("click", resetTheGame)
 
+// function that logs your attempts 
+
+function logAttempts() {
+    if (cardsPicked.length === 2) {
+        attemptNumber++
+        attempts.innerText = `${attemptNumber}`
+    }
+}
+
+// function that says matches found
+
+function matchesFoundNumber() {
+    cardsFoundNumber++
+    cardsFound.innerText = `${cardsFoundNumber} out of 8`
+}
 
 // notify of win 
 
