@@ -1,6 +1,6 @@
+ document.addEventListener("DOMContentLoaded", () => {
+ 
  /*----- constants -----*/
-
-document.addEventListener('DOMContentLoaded', () => {
 
 // array to hold cards
 
@@ -68,7 +68,7 @@ const images = [
     {
         name: 'treble-clef-card',
         img: 'images/treble-clef-card.png'
-    },
+    }
 ]
 
 const cardsPicked = []
@@ -79,7 +79,6 @@ const cards = document.querySelector('#game-container')
 const startButton = document.querySelectorAll('#start-button')
 const stopButton = document.querySelectorAll('#stop-button')
 const resetButton = document.querySelectorAll('#reset-button')
-const alertOfWin = document.querySelector('#alert-of-win')
 
 /*----- event handlers -----*/ 
 
@@ -97,9 +96,29 @@ function createGameBoard() {
         cards.appendChild(card)
 }
 
+// flip card
+
+function flipCard() {
+    const cardId = this.getAttribute('data-id')
+    cardsPicked.push(images[cardId].name)
+    cardsPickedId.push(cardId)
+    this.setAttribute('src', images[cardId].img)
+    if (cardsPicked.length === 2) {
+        setTimeout(matchOrNot, 450)
+    }
+}
+
+
 // randomize cards using Fisher Yates
 
-for (let i = images.length - 1; i >= 0; i--))
+const shuffle = (array) => {
+    for (let i = images.length - 1; i >= 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1))
+        array.push(array[randomIndex])
+        array.splice(randomIndex, 1)
+    }
+    return array
+}
 
 // check for matches
 
@@ -124,69 +143,62 @@ function matchOrNot() {
     }
     cardsPicked = []
     cardsPickedId = []
+
 }
 
-// flip card
-
-function flipCard() {
-    const cardId = this.getAttribute('data-id')
-    cardsPicked.push(images[cardId].name)
-    cardsPickedId.push(cardId)
-    this.setAttribute('src', images[cardId].img)
-    if (cardsPicked.length === 2) {
-        setTimeout(matchOrNot, 450)
-    }
-}
+// notify of win 
 
 createGameBoard()
+}
 
 // start game
 
-function startGameAlert() {
-    alert('Your game has begun. Click a card to start!')
-}
+// function startGameAlert() {
+//     alert('Your game has begun. Click a card to start!')
+// }
 
-// also add the shuffle function into startGame
-function shuffleCards() {
+// // also add the shuffle function into startGame
+// function shuffleCards() {
 
-}
+// }
 
-// on clicking the start button
-let startGame = () => startButton.onclick = startGameAlert
+// // on clicking the start button
+// let startGame = () => startButton.onclick = startGameAlert
 
-// write a function to return the cards to their original places when you stop
-function stopTheGame() {
-    // if any cards are flipped over, alert asking do you want to stop, then return cards to their front facing position
-    // if no cards are flipped over do nothing
-}
+// // write a function to return the cards to their original places when you stop
+// function stopTheGame() {
+//     // if any cards are flipped over, alert asking do you want to stop, then return cards to their front facing position
+//     // if no cards are flipped over do nothing
+// }
 
-let stopButtonClicked = () => stopButton.onclick = stopTheGame
+// let stopButtonClicked = () => stopButton.onclick = stopTheGame
 
-// function that resets the cards
+// // function that resets the cards
 
-function resetTheGame() {
-    // return all cards to front-facing position
-}
+// function resetTheGame() {
+//     // return all cards to front-facing position
+// }
 
-let resetButtonClicked = () => resetButton.onclick = resetTheGame
+// let resetButtonClicked = () => resetButton.onclick = resetTheGame
 
-// function to randomize card positions
+// // function to randomize card positions
 
 
-// function to keep pairs facing forward
-function keepPairsFlipped() {
-    // if // two of the same images are chosen, keep facing forwards
+// // function to keep pairs facing forward
+// function keepPairsFlipped() {
+//     // if // two of the same images are chosen, keep facing forwards
 
-    // else, return to .back-face positions
-}
+//     // else, return to .back-face positions
+// }
 
-// once all pairs are found
+// // once all pairs are found
 
-function notifyWin() {
-    if (click === true) {
-        alert("Looks like your memory is pretty darn good! To play again, click start!")
-    } else {
-        return
-    }
-}
-}
+// function notifyWin() {
+//     if (click === true) {
+//         alert("Looks like your memory is pretty darn good! To play again, click start!")
+//     } else {
+//         return
+//     }
+// }
+
+})
