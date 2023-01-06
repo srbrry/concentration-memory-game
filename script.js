@@ -71,14 +71,13 @@ const images = [
     }
 ]
 
-const cardsPicked = []
+let cardsPicked = []
+let cardsPickedId = []
 const matchesFound = []
-const cardsPickedId = []
 
 const cards = document.querySelector('#game-container')
-const startButton = document.querySelectorAll('#start-button')
-const stopButton = document.querySelectorAll('#stop-button')
-const resetButton = document.querySelectorAll('#reset-button')
+const startButton = document.querySelector('#start-button')
+const resetButton = document.querySelector('#reset-button')
 
 /*----- event handlers -----*/ 
 
@@ -95,6 +94,7 @@ function createGameBoard() {
         card.addEventListener('click', flipCard)
         cards.appendChild(card)
 }
+}
 
 // flip card
 
@@ -102,6 +102,7 @@ function flipCard() {
     const cardId = this.getAttribute('data-id')
     cardsPicked.push(images[cardId].name)
     cardsPickedId.push(cardId)
+    console.log(cardsPickedId)
     this.setAttribute('src', images[cardId].img)
     if (cardsPicked.length === 2) {
         setTimeout(matchOrNot, 450)
@@ -121,16 +122,18 @@ const shuffle = (array) => {
 }
 
 // check for matches
-
 function matchOrNot() {
     const cards = document.querySelectorAll('img')
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
 
-      if (cardsPicked[0] === cardsChosen[1]) {
+      if (cardsPicked[0] === cardsPicked[1]) {
         console.log('Its a match!')
         // putting the matched cards into an
         // empty array
+        console.log(firstId)
+        console.log(secondId)
+        console.log(cards)
         cards[firstId].removeEventListener('click', flipCard)
         cards[secondId].removeEventListener('click', flipCard)
         matchesFound.push(cardsPicked)
@@ -146,59 +149,29 @@ function matchOrNot() {
 
 }
 
-// notify of win 
-
+shuffle(images)
 createGameBoard()
-}
 
 // start game
 
-// function startGameAlert() {
-//     alert('Your game has begun. Click a card to start!')
-// }
+function startGame() {
+    console.log('Your game has begun. Click a card to start!')
+    shuffle(images)
+}
 
-// // also add the shuffle function into startGame
-// function shuffleCards() {
-
-// }
-
-// // on clicking the start button
-// let startGame = () => startButton.onclick = startGameAlert
-
-// // write a function to return the cards to their original places when you stop
-// function stopTheGame() {
-//     // if any cards are flipped over, alert asking do you want to stop, then return cards to their front facing position
-//     // if no cards are flipped over do nothing
-// }
-
-// let stopButtonClicked = () => stopButton.onclick = stopTheGame
+startButton.addEventListener("click", startGame)
 
 // // function that resets the cards
 
-// function resetTheGame() {
-//     // return all cards to front-facing position
-// }
+function resetTheGame() {
+    // return all cards to front-facing position
+    cardsPicked =  []
+    cardsPickedId = []
+}
 
-// let resetButtonClicked = () => resetButton.onclick = resetTheGame
-
-// // function to randomize card positions
+let clickReset = () => resetButton.onclick = resetTheGame
 
 
-// // function to keep pairs facing forward
-// function keepPairsFlipped() {
-//     // if // two of the same images are chosen, keep facing forwards
-
-//     // else, return to .back-face positions
-// }
-
-// // once all pairs are found
-
-// function notifyWin() {
-//     if (click === true) {
-//         alert("Looks like your memory is pretty darn good! To play again, click start!")
-//     } else {
-//         return
-//     }
-// }
+// notify of win 
 
 })

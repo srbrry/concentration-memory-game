@@ -18,6 +18,10 @@ h2 {
     margin-top: 0px;
 }
 
+a {
+    color: white;
+}
+
 .buttons {
     text-align: center;
     display: grid;
