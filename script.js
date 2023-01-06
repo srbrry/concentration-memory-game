@@ -1,5 +1,7 @@
  /*----- constants -----*/
 
+document.addEventListener('DOMContentLoaded', () => {
+
 // array to hold cards
 
 const images = [
@@ -70,11 +72,16 @@ const images = [
 ]
 
 const cardsPicked = []
+const matchesFound = []
+const cardsPickedId = []
 
 const cards = document.querySelector('#game-container')
 const startButton = document.querySelectorAll('#start-button')
 const stopButton = document.querySelectorAll('#stop-button')
 const resetButton = document.querySelectorAll('#reset-button')
+const alertOfWin = document.querySelector('#alert-of-win')
+
+/*----- event handlers -----*/ 
 
 
 /*----- functions -----*/ 
@@ -86,9 +93,13 @@ function createGameBoard() {
         const card = document.createElement('img')
         card.setAttribute('src', 'images/blank-card.png')
         card.setAttribute('data-id', i)
-        // card.addEventListener('click', flip card)
+        card.addEventListener('click', flipCard)
         cards.appendChild(card)
 }
+
+// randomize cards using Fisher Yates
+
+for (let i = images.length - 1; i >= 0; i--))
 
 // check for matches
 
@@ -96,10 +107,23 @@ function matchOrNot() {
     const cards = document.querySelectorAll('img')
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
+
       if (cardsPicked[0] === cardsChosen[1]) {
-        alert('You found a match')
-        cards[optionOneId].setAttribute()
+        console.log('Its a match!')
+        // putting the matched cards into an
+        // empty array
+        cards[firstId].removeEventListener('click', flipCard)
+        cards[secondId].removeEventListener('click', flipCard)
+        matchesFound.push(cardsPicked)
+    } else {
+        // turn the card back over if there
+        // isn't a match
+        cards[firstId].setAttribute('src', 'images/blank-card.png')
+        cards[secondId].setAttribute('src', 'images/blank-card.png')
+        console.log("Sorry, try again")
     }
+    cardsPicked = []
+    cardsPickedId = []
 }
 
 // flip card
@@ -164,4 +188,5 @@ function notifyWin() {
     } else {
         return
     }
+}
 }
