@@ -1,0 +1,39 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    text-align: center;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+a {
+    color: rgb(255, 160, 207);
+}
+
+p {
+    animation: 1.2s 0s ease-in fadeIn;
+    margin: 15px 300px;
+    font-family: Avenir;
+}
+
+h1 {
+    margin: 55px auto 20px auto;
+    font-family: 'Nothing You Could Do', cursive;
+    color: rgb(255, 231, 243);
+    font-size: 4em;
+}
+
+h3 {
+    margin: 40px auto 10px auto;
+    font-family: 'Nothing You Could Do', cursive;
+    color: rgb(255, 231, 243);
+    font-size: 2em;
+
+}

@@ -135,7 +135,11 @@ const shuffle = (array) => {
 
 function alertWin() {
     if (cardsFoundNumber === 8) {
-        winMessage.innerText = `Congrats! You did it! Turns out your memory is pretty dang good!`
+        winMessage.innerText = `congrats! you did it! turns out your memory is pretty dang good!`
+        winMessage.style.backgroundColor = "rgb(255, 170, 183)"
+        winMessage.style.color = "black"
+        winMessage.style.fontWeight = "bold"
+        winMessage.style.padding = "10px"
     }
 }
 
@@ -197,6 +201,7 @@ function resetTheGame() {
     images.img.setAttribute('src', 'images/blank-card.png')
     attempts.innerText = 0
     cardsFound.innerText = 0
+    winMessage = ' '
 }
 
 resetButton.addEventListener("click", resetTheGame)

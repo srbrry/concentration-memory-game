@@ -1,3 +1,21 @@
+@keyframes slideDown {
+    0% {
+      transform: translateY(-500%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 body {
     background-image: url('images/black-background.jpg');
     background-size: cover;
@@ -15,6 +33,7 @@ h1 {
 }
 
 h2 {
+    animation: 1s ease-out 0s 1 slideDown;
     font-weight: normal;
     font-family: Avenir;
     padding: 0px;
@@ -26,7 +45,7 @@ a {
 }
 
 img {
-    width: 175px;
+    width: 155px;
 }
 
 .buttons {
@@ -35,12 +54,7 @@ img {
     grid-template-columns: 50% 50%;
     width: 175px;
     height: 35px;
-    margin: 75px auto 30px auto;
-}
-
-.win-message {
-    color: rgb(236, 19, 19);
-    font-weight: bold;
+    margin: 35px auto 30px auto;
 }
 
 .footer, nav {
@@ -56,6 +70,7 @@ img {
 }
 
 #game-container {
+    animation: 2s ease-in 0s fadeIn;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     margin-bottom: 50px;
@@ -70,5 +85,5 @@ img {
     border-radius: 40px;
     width: 255px;
     background-color: black;
-    margin: 30px auto 40px auto;
+    margin: 30px auto 20px auto;
 }
