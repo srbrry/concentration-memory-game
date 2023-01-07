@@ -73,7 +73,7 @@ const images = [
 
 let cardsPicked = []
 let cardsPickedId = []
-const matchesFound = []
+let matchesFound = []
 
 const cards = document.querySelector('#game-container')
 const startButton = document.querySelector('#start-button')
@@ -112,7 +112,7 @@ function flipCard() {
         this.setAttribute('src', images[cardId].img)
     }
     if (cardsPicked.length === 2) {
-        setTimeout(matchOrNot, 1000)
+        setTimeout(matchOrNot, 700)
     }
 
     logAttempts()
@@ -130,6 +130,14 @@ const shuffle = (array) => {
     return array
 }
 
+// alert of win  NOT SURE WHERE TO CALL THE FUNCTION
+
+function alertWin() {
+    if (cardsFoundNumber === 8 || cardsFound.innerText === '8 out of 8') {
+        console.log("You did it! Looks like your memory is pretty darn good.")
+    }
+}
+
 // check for matches
 function matchOrNot() {
     const cards = document.querySelectorAll('img')
@@ -140,6 +148,7 @@ function matchOrNot() {
     console.log(firstId)
     console.log(secondId)
     console.log(cardsPicked)
+    console.log(cardsPicked.length)
       if (cardsPicked[0] === cardsPicked[1] && firstId !== secondId) {
         console.log('Its a match!')
         // putting the matched cards into an
@@ -177,12 +186,13 @@ startButton.addEventListener("click", startGame)
 // reset game 
 
 function resetTheGame() {
+    console.log("this works")
     // return all cards to front-facing position
     cardsPicked =  []
     cardsPickedId = []
     cards.setAttribute('src', 'images/blank-card.png')
-    attemptNumber = 0
-    cardsFoundNumber = 0
+    attempts.innerText = 0
+    cardsFound.innerText = 0
 }
 
 resetButton.addEventListener("click", resetTheGame)
@@ -203,6 +213,4 @@ function matchesFoundNumber() {
     cardsFound.innerText = `${cardsFoundNumber} out of 8`
 }
 
-// notify of win 
-
-})
+ })
