@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(83, 142, 0);
-    color: rgb(255, 251, 243);
+    background-image: url('images/black-background.jpg');
+    background-size: cover;
+    color: rgb(255, 249, 251);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -8,12 +9,14 @@ body {
 
 h1 {
     font-family: 'Nothing You Could Do', cursive;
+    color: rgb(255, 225, 229);
     font-size: 60px;
     margin-bottom: 0px;
 }
 
 h2 {
     font-weight: normal;
+    font-family: Avenir;
     padding: 0px;
     margin-top: 0px;
 }
@@ -30,18 +33,42 @@ img {
     text-align: center;
     display: grid;
     grid-template-columns: 50% 50%;
-    width: 100px;
-    height: 30px;
+    width: 175px;
+    height: 35px;
     margin: 75px auto 30px auto;
+}
 
+.win-message {
+    color: rgb(236, 19, 19);
+    font-weight: bold;
 }
 
 .footer, nav {
     text-align: center;
 }
 
+#start-button, #reset-button {
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(255, 221, 226);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 13px;
+}
+
 #game-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     margin-bottom: 50px;
+}
+
+#win-box {
+    margin-top: 50px;
+}
+
+#attempts-and-matches {
+    border: 2px solid rgb(255, 231, 243);
+    border-radius: 40px;
+    width: 255px;
+    background-color: black;
+    margin: 30px auto 40px auto;
 }
