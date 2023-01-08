@@ -195,10 +195,12 @@ startButton.addEventListener("click", startGame)
 function resetTheGame() {
     console.log("this works")
     // return all cards to front-facing position
+    for (let i = 0; i < images.length; i++) {
+        images[i].img.setAttribute('src', 'images/blank-card.png')
+    }
     cardsPicked = []
     cardsPickedId = []
     matchesFound = []
-    images.img.setAttribute('src', 'images/blank-card.png')
     attempts.innerText = 0
     cardsFound.innerText = 0
     winMessage.innerText = ' '
