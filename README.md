@@ -23,7 +23,7 @@ JavaScript, HTML, CSS
 
 ## Getting Started
 
-To play the game and start matching you can click [here](./images/game-start.png)
+To play the game and start matching you can click [here](https://srbrry.github.io/concentration-memory-game/)
 
 ## Next Steps
 
