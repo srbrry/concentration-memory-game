@@ -1,8 +1,4 @@
  document.addEventListener("DOMContentLoaded", () => {
- 
- /*----- constants -----*/
-
-// array to hold cards
 
 const images = [
     {
@@ -85,12 +81,7 @@ const cardsFound = document.querySelector('.cards-found')
 let attemptNumber = 0
 let cardsFoundNumber = 0
 
-/*----- event handlers -----*/ 
-
-
-/*----- functions -----*/ 
-
-// creating the game board
+// create the game board
 
 function createGameBoard() {
     for (let i = 0; i < images.length; i++) {
@@ -113,14 +104,13 @@ function flipCard() {
         this.setAttribute('src', images[cardId].img)
     }
     if (cardsPicked.length === 2) {
-        setTimeout(matchOrNot, 700)
+        setTimeout(determineMatch, 700)
     }
 
     logAttempts()
 }
 
-
-// randomize cards using Fisher Yates
+// randomize cards w/ Fisher Yates
 
 const shuffle = (array) => {
     for (let i = images.length - 1; i >= 0; i--) {
@@ -144,7 +134,7 @@ function alertWin() {
 }
 
 // check for matches
-function matchOrNot() {
+function determineMatch() {
     const cards = document.querySelectorAll('img')
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
@@ -212,7 +202,7 @@ function resetTheGame() {
 
 resetButton.addEventListener("click", resetTheGame)
 
-// function that logs your attempts 
+// log attempts 
 
 function logAttempts() {
     if (cardsPicked.length === 2) {
@@ -221,7 +211,7 @@ function logAttempts() {
     }
 }
 
-// function that says matches found
+// matches found
 
 function matchesFoundNumber() {
     cardsFoundNumber++
