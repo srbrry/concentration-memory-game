@@ -25,6 +25,11 @@ JavaScript, HTML, CSS
 
 To play the game and start matching you can click [here](https://srbrry.github.io/concentration-memory-game/)
 
+1. Press the start button and click a card to start the game.
+2. Find the match by clicking another card.
+3. Once you have clicked and found all the matches, you've won.
+4. After all matches are found, press the reset button to clear the game board and start a new game.
+
 ## Next Steps
 
 Version 2.0
