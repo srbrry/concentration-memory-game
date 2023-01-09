@@ -194,19 +194,20 @@ startButton.addEventListener("click", startGame)
 
 function resetTheGame() {
     console.log("this works")
-    // return all cards to front-facing position
-    for (let i = 0; i < images.length; i++) {
-        images[i].img.setAttribute('src', 'images/blank-card.png')
-    }
     cardsPicked = []
     cardsPickedId = []
     matchesFound = []
-    attempts.innerText = 0
-    cardsFound.innerText = 0
+    cards.innerText = ' '
+    attemptNumber = 0
+    attempts.innerText = `${attemptNumber}`
+    cardsFoundNumber = 0
+    cardsFound.innerText = `${cardsFoundNumber} out of 8`
     winMessage.innerText = ' '
         winMessage.style.removeProperty("background-color")
         winMessage.style.removeProperty("padding")
         winMessage.style.removeProperty("padding")
+    shuffle(images)
+    createGameBoard()
 }
 
 resetButton.addEventListener("click", resetTheGame)
@@ -225,6 +226,5 @@ function logAttempts() {
 function matchesFoundNumber() {
     cardsFoundNumber++
     cardsFound.innerText = `${cardsFoundNumber} out of 8`
-}
-
- })
+    }
+})
