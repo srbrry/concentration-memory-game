@@ -1,4 +1,5 @@
- document.addEventListener("DOMContentLoaded", () => {
+// use of double quotes here needs to be changed over to single quotes. Single quotes are used for the rest of the file
+document.addEventListener("DOMContentLoaded", () => {
 
 const images = [
     {
@@ -78,6 +79,8 @@ let winMessage = document.querySelector('.win-message')
 
 const attempts = document.querySelector('.attempts')
 const cardsFound = document.querySelector('.cards-found')
+// Magic Numbers like ones here are declared with all caps and snake case
+// ATTEMPT_NUMBER = 0
 let attemptNumber = 0
 let cardsFoundNumber = 0
 
@@ -139,6 +142,7 @@ function determineMatch() {
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
 
+    // remove console logs
     console.log(cards)
     console.log(firstId)
     console.log(secondId)
@@ -149,12 +153,14 @@ function determineMatch() {
         // putting the matched cards into an
         // empty array
         matchesFoundNumber()
+        // remove console logs
         console.log(firstId)
         console.log(secondId)
         console.log(cards)
         cards[firstId].removeEventListener('click', flipCard)
         cards[secondId].removeEventListener('click', flipCard)
         matchesFound.push(cardsPicked)
+        // remove console logs
         console.log(cardsFoundNumber)
         alertWin()
     } else {
@@ -162,6 +168,7 @@ function determineMatch() {
         // isn't a match
         cards[firstId].setAttribute('src', 'images/blank-card.png')
         cards[secondId].setAttribute('src', 'images/blank-card.png')
+        // remove console logs
         console.log("Sorry, try again")
     }
     cardsPicked = []
@@ -173,16 +180,22 @@ createGameBoard()
 
 // start game
 
+// since this is only calling `shuffle(images)` you don't really need this function
+// instead of making this function just hand `shuffle(images)` to the startButton.addEventListener that starts on line 192
 function startGame() {
+    // remove console.log
     console.log('Your game has begun. Click a card to start!')
     shuffle(images)
 }
 
+// double quotes again here
 startButton.addEventListener("click", startGame)
+// startButton.addEventListener("click", () => shuffle(images))
 
 // reset game 
 
 function resetTheGame() {
+    // remove console logs
     console.log("this works")
     cardsPicked = []
     cardsPickedId = []
