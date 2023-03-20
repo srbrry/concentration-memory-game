@@ -2,7 +2,7 @@
 
 Music Match™ is a game that puts your memory to the test! Modeled after a "concentration" card matching game, players must turn over pairs of cards that feature pictures of different music-related paraphernalia (instruments, CDs, etc.)
 
-Inspired by its creators love for all things music, the game is a musical spin on the classic game, featuring hand-sketched cards.
+Inspired by its creator's love for all things music, the game is a musical spin on the classic game, featuring hand-sketched cards.
 
 During their turn, a player must select from two of 16 blank cards in hopes of turning up a match. 
 
@@ -23,7 +23,12 @@ JavaScript, HTML, CSS
 
 ## Getting Started
 
-To play the game and start matching you can click [here](./images/game-start.png)
+To play the game and start matching you can click [here](https://srbrry.github.io/concentration-memory-game/)
+
+1. Press the start button and click a card to start the game.
+2. Find the match by clicking another card.
+3. Once you have clicked and found all the matches, you've won.
+4. After all matches are found, press the reset button to clear the game board and start a new game.
 
 ## Next Steps
 

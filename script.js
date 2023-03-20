@@ -82,6 +82,7 @@ let attemptNumber = 0
 let cardsFoundNumber = 0
 
 // create the game board
+// attachign each card to a link from image array
 
 function createGameBoard() {
     for (let i = 0; i < images.length; i++) {
@@ -139,30 +140,20 @@ function determineMatch() {
     const firstId = cardsPickedId[0]
     const secondId = cardsPickedId[1]
 
-    console.log(cards)
-    console.log(firstId)
-    console.log(secondId)
-    console.log(cardsPicked)
-    console.log(cardsPicked.length)
       if (cardsPicked[0] === cardsPicked[1] && firstId !== secondId) {
-        console.log('Its a match!')
+        // then it's a match
         // putting the matched cards into an
         // empty array
         matchesFoundNumber()
-        console.log(firstId)
-        console.log(secondId)
-        console.log(cards)
         cards[firstId].removeEventListener('click', flipCard)
         cards[secondId].removeEventListener('click', flipCard)
         matchesFound.push(cardsPicked)
-        console.log(cardsFoundNumber)
         alertWin()
     } else {
         // turn the card back over if there
         // isn't a match
         cards[firstId].setAttribute('src', 'images/blank-card.png')
         cards[secondId].setAttribute('src', 'images/blank-card.png')
-        console.log("Sorry, try again")
     }
     cardsPicked = []
     cardsPickedId = []
@@ -174,7 +165,6 @@ createGameBoard()
 // start game
 
 function startGame() {
-    console.log('Your game has begun. Click a card to start!')
     shuffle(images)
 }
 
@@ -183,7 +173,7 @@ startButton.addEventListener("click", startGame)
 // reset game 
 
 function resetTheGame() {
-    console.log("this works")
+    // empty the picked cards and matches so the game can reset
     cardsPicked = []
     cardsPickedId = []
     matchesFound = []
@@ -202,7 +192,7 @@ function resetTheGame() {
 
 resetButton.addEventListener("click", resetTheGame)
 
-// log attempts 
+// log the user's attempts 
 
 function logAttempts() {
     if (cardsPicked.length === 2) {
