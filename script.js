@@ -1,5 +1,7 @@
  document.addEventListener("DOMContentLoaded", () => {
 
+// establish card images with an array
+
 const images = [
     {
         name: 'african-drum',
@@ -67,6 +69,8 @@ const images = [
     }
 ]
 
+// starting off with empty slate of cards
+
 let cardsPicked = []
 let cardsPickedId = []
 let matchesFound = []
@@ -82,7 +86,7 @@ let attemptNumber = 0
 let cardsFoundNumber = 0
 
 // create the game board
-// attachign each card to a link from image array
+// attaching each card to a link from image array
 
 function createGameBoard() {
     for (let i = 0; i < images.length; i++) {

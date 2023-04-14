@@ -28,7 +28,13 @@ To play the game and start matching you can click [here](https://srbrry.github.i
 1. Press the start button and click a card to start the game.
 2. Find the match by clicking another card.
 3. Once you have clicked and found all the matches, you've won.
-4. After all matches are found, press the reset button to clear the game board and start a new game.
+4. After all matches are found, press the reset button to clear the game board and start a new game!
+
+## Challenges
+
+This was quite an enjoyable first coding project to work on as it includes my love of music, but there was naturally a massive learning curve to learning Javascript as a coding newcomer.
+
+The hardest part of building this project was getting the reset functionality. I had seen several classmates refresh their games with a simple page reload, and funny enough, I didn't think this was an option so I immediately took the harder route which ended up teaching me a lot in the end and paying off. After painstakingly figuring out which arrays needed to be emptied to cause a reset, I was good to go!
 
 ## Next Steps
 
